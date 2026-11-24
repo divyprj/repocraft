@@ -1,0 +1,53 @@
+name: Bug Report
+description: Report a bug or unintended behavior in RepoCraft
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue. Please provide actionable details to help us diagnose and reproduce the bug.
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: dropdown
+    id: agent
+    attributes:
+      label: AI Agent Ecosystem
+      description: Which AI coding agent was active when the issue occurred?
+      options:
+        - Claude Code
+        - Cursor
+        - OpenAI Codex / ChatGPT
+        - Google Antigravity
+        - Other / Multiple
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Exact steps to reproduce the behavior.
+      placeholder: |
+        1. Install skill via `...`
+        2. Prompt agent with `...`
+        3. See error or unexpected output
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Info
+      description: Operating system, agent version, and relevant details.
+    validations:
+      required: false

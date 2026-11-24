@@ -1,0 +1,9 @@
+# CODEOWNERS
+# Global owners for all files
+*       @organization/core-maintainers
+
+# Architecture and documentation
+/docs/  @organization/architecture-team
+
+# Security policy
+/SECURITY.md @organization/security-team

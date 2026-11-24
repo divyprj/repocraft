@@ -1,0 +1,29 @@
+name: Documentation Improvement
+description: Suggest improvements, corrections, or clarifications in RepoCraft documentation
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us keep documentation accurate, factual, and free of unnecessary complexity.
+  - type: input
+    id: page
+    attributes:
+      label: Affected Document
+      description: Specific document (e.g. docs/installation.md, docs/compatibility.md)
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Issue Description
+      description: What is inaccurate, outdated, or confusing?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: Proposed revised wording or technical corrections.
+    validations:
+      required: true

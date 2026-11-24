@@ -1,0 +1,42 @@
+name: Compatibility Issue
+description: Report an issue discovering or running RepoCraft on a specific AI agent platform
+labels: ["compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report platform-specific compatibility discrepancies against official agent documentation.
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Affected Agent
+      description: Select the affected agent ecosystem
+      options:
+        - Claude Code
+        - Cursor
+        - OpenAI Codex / ChatGPT
+        - Google Antigravity
+        - Other Agent Skills Runner
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Agent / Tool Version
+      description: Exact version of the agent software (e.g. Claude Code 0.2.x, Cursor 0.40+)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Discovery or Execution Problem
+      description: Describe whether the skill failed to discover, parse frontmatter, or execute instructions.
+    validations:
+      required: true
+  - type: textarea
+    id: paths
+    attributes:
+      label: Paths Tested
+      description: What file paths and directory structures were tested?
+    validations:
+      required: false

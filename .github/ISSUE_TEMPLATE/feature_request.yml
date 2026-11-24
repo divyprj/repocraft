@@ -1,0 +1,29 @@
+name: Feature Request
+description: Propose an architectural or capability improvement for RepoCraft
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest enhancements that preserve RepoCraft's core engineering principles.
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Capability
+      description: What new guideline, template, or installer capability should be added?
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Technical Justification
+      description: Why is this capability necessary? How does it benefit developer repositories?
+    validations:
+      required: true
+  - type: textarea
+    id: cross-agent
+    attributes:
+      label: Cross-Agent Impact
+      description: Does this feature affect one agent specifically or all supported agents?
+    validations:
+      required: false
