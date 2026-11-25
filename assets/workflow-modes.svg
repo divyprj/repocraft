@@ -1,95 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 330" width="1120" height="330" role="img" aria-label="RepoCraft 5 Execution Modes and Engineering Pipeline">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 336" width="1120" height="336" role="img" aria-label="RepoCraft 5 Execution Modes and Engineering Pipeline">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#090d16"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#6366f1"/>
-      <stop offset="100%" stop-color="#22d3ee"/>
-    </linearGradient>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#22d3ee"/>
+    <pattern id="draftGrid2" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#e4ded2" stroke-width="0.8"/>
+    </pattern>
+    <marker id="inkArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#c84b31"/>
     </marker>
   </defs>
 
-  <rect width="1120" height="330" rx="16" fill="url(#bg)" stroke="#1e293b" stroke-width="1.5"/>
+  <rect width="1120" height="336" rx="12" fill="#f5f2eb" stroke="#d4cec0" stroke-width="1.5"/>
+  <rect width="1120" height="336" rx="12" fill="url(#draftGrid2)" opacity="0.65"/>
 
-  <text x="32" y="40" fill="#f8fafc" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" letter-spacing="0.06em">5 EXECUTION MODES</text>
-  <text x="230" y="40" fill="#64748b" font-family="ui-monospace, monospace" font-size="12">CLAUDE CODE · CURSOR · CODEX · ANTIGRAVITY · OPENCODE</text>
+  <!-- Header -->
+  <text x="36" y="40" fill="#141619" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="800" letter-spacing="0.1em">02 / EXECUTION MODES</text>
+  <text x="1084" y="40" text-anchor="end" fill="#6b655a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5">CLAUDE · CURSOR · CODEX · ANTIGRAVITY · OPENCODE</text>
+  <line x1="36" y1="54" x2="1084" y2="54" stroke="#141619" stroke-width="1.2"/>
 
-  <!-- 5 Mode Cards -->
-  <g transform="translate(32, 62)">
-    <rect width="198" height="122" rx="10" fill="#131c2e" stroke="#334155"/>
-    <rect width="198" height="3" rx="1.5" fill="url(#bar)"/>
-    <text x="16" y="30" fill="#818cf8" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE A</text>
-    <text x="16" y="52" fill="#f8fafc" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">New Repository</text>
-    <text x="16" y="76" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Scaffold structure,</text>
-    <text x="16" y="94" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">README, governance</text>
-    <text x="16" y="112" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">and AGENTS.md</text>
+  <!-- 5 Editorial Mode Cards -->
+  <g transform="translate(36, 72)">
+    <rect width="196" height="126" rx="6" fill="#fbf9f4" stroke="#c9c2b2" stroke-width="1.2"/>
+    <rect width="196" height="4" rx="2" fill="#2c4a6e"/>
+    <text x="16" y="30" fill="#2c4a6e" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE A</text>
+    <text x="16" y="52" fill="#141619" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">New Repository</text>
+    <text x="16" y="76" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Scaffold structure,</text>
+    <text x="16" y="94" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">README, governance</text>
+    <text x="16" y="112" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">and AGENTS.md</text>
   </g>
 
-  <g transform="translate(246, 62)">
-    <rect width="198" height="122" rx="10" fill="#131c2e" stroke="#334155"/>
-    <rect width="198" height="3" rx="1.5" fill="url(#bar)"/>
-    <text x="16" y="30" fill="#818cf8" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE B</text>
-    <text x="16" y="52" fill="#f8fafc" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">Existing Repo</text>
-    <text x="16" y="76" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Inspect source code</text>
-    <text x="16" y="94" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">and sync architecture,</text>
-    <text x="16" y="112" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">ER diagrams &amp; ADRs</text>
+  <g transform="translate(248, 72)">
+    <rect width="196" height="126" rx="6" fill="#fbf9f4" stroke="#c9c2b2" stroke-width="1.2"/>
+    <rect width="196" height="4" rx="2" fill="#2c4a6e"/>
+    <text x="16" y="30" fill="#2c4a6e" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE B</text>
+    <text x="16" y="52" fill="#141619" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">Existing Repo</text>
+    <text x="16" y="76" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Inspect source code</text>
+    <text x="16" y="94" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">and sync diagrams,</text>
+    <text x="16" y="112" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">ER models &amp; ADRs</text>
   </g>
 
-  <g transform="translate(460, 62)">
-    <rect width="198" height="122" rx="10" fill="#131c2e" stroke="#22d3ee" stroke-opacity="0.5"/>
-    <rect width="198" height="3" rx="1.5" fill="url(#bar)"/>
-    <text x="16" y="30" fill="#22d3ee" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE C</text>
-    <text x="16" y="52" fill="#f8fafc" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">Docs-Only Safe</text>
-    <text x="16" y="76" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Strict boundary: zero</text>
-    <text x="16" y="94" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">app logic, config, or</text>
-    <text x="16" y="112" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">dependency changes</text>
+  <g transform="translate(460, 72)">
+    <rect width="196" height="126" rx="6" fill="#141619" stroke="#141619" stroke-width="1.2"/>
+    <rect width="196" height="4" rx="2" fill="#c84b31"/>
+    <text x="16" y="30" fill="#e87a64" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE C</text>
+    <text x="16" y="52" fill="#f5f2eb" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">Docs-Only Safe</text>
+    <text x="16" y="76" fill="#c9c2b2" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Hard boundary: zero</text>
+    <text x="16" y="94" fill="#c9c2b2" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">app logic, config, or</text>
+    <text x="16" y="112" fill="#c9c2b2" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">dependency edits</text>
   </g>
 
-  <g transform="translate(674, 62)">
-    <rect width="198" height="122" rx="10" fill="#131c2e" stroke="#334155"/>
-    <rect width="198" height="3" rx="1.5" fill="url(#bar)"/>
-    <text x="16" y="30" fill="#818cf8" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE D</text>
-    <text x="16" y="52" fill="#f8fafc" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">Maintenance</text>
-    <text x="16" y="76" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Surgical updates to</text>
-    <text x="16" y="94" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">docs &amp; CHANGELOG</text>
-    <text x="16" y="112" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">after code changes</text>
+  <g transform="translate(672, 72)">
+    <rect width="196" height="126" rx="6" fill="#fbf9f4" stroke="#c9c2b2" stroke-width="1.2"/>
+    <rect width="196" height="4" rx="2" fill="#2c4a6e"/>
+    <text x="16" y="30" fill="#2c4a6e" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE D</text>
+    <text x="16" y="52" fill="#141619" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">Maintenance</text>
+    <text x="16" y="76" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Surgical updates to</text>
+    <text x="16" y="94" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">affected docs and</text>
+    <text x="16" y="112" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">CHANGELOG entries</text>
   </g>
 
-  <g transform="translate(888, 62)">
-    <rect width="200" height="122" rx="10" fill="#131c2e" stroke="#334155"/>
-    <rect width="200" height="3" rx="1.5" fill="url(#bar)"/>
-    <text x="16" y="30" fill="#34d399" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE E</text>
-    <text x="16" y="52" fill="#f8fafc" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">Read-Only Audit</text>
-    <text x="16" y="76" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Prioritized gap report</text>
-    <text x="16" y="94" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">covering security, IP,</text>
-    <text x="16" y="112" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">and missing docs</text>
+  <g transform="translate(884, 72)">
+    <rect width="200" height="126" rx="6" fill="#fbf9f4" stroke="#c9c2b2" stroke-width="1.2"/>
+    <rect width="200" height="4" rx="2" fill="#c84b31"/>
+    <text x="16" y="30" fill="#c84b31" font-family="ui-monospace, monospace" font-size="11" font-weight="700">MODE E</text>
+    <text x="16" y="52" fill="#141619" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700">Read-Only Audit</text>
+    <text x="16" y="76" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">Prioritized gap report</text>
+    <text x="16" y="94" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">covering security, IP,</text>
+    <text x="16" y="112" fill="#524e46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5">and missing docs</text>
   </g>
 
-  <!-- Bottom Pipeline Bar -->
-  <g transform="translate(32, 218)">
-    <rect width="1056" height="80" rx="12" fill="#0b101b" stroke="#1e293b"/>
-    <text x="20" y="26" fill="#64748b" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700">EXECUTION PIPELINE</text>
+  <!-- Bottom Pipeline Strip -->
+  <g transform="translate(36, 224)">
+    <rect width="1048" height="82" rx="8" fill="#141619"/>
+    <text x="22" y="26" fill="#9ca3af" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.08em">STANDARD EXECUTION PIPELINE</text>
 
-    <rect x="20" y="38" width="210" height="28" rx="6" fill="#131c2e" stroke="#334155"/>
-    <text x="125" y="56" text-anchor="middle" fill="#e2e8f0" font-family="ui-monospace, monospace" font-size="11.5">1. Inspect Codebase</text>
+    <rect x="22" y="39" width="210" height="28" rx="4" fill="#1f2329" stroke="#343942"/>
+    <text x="127" y="57" text-anchor="middle" fill="#f5f2eb" font-family="ui-monospace, monospace" font-size="11.5">01. Inspect Source</text>
 
-    <line x1="236" y1="52" x2="278" y2="52" stroke="#22d3ee" stroke-width="1.8" marker-end="url(#arrow)"/>
+    <line x1="238" y1="53" x2="278" y2="53" stroke="#c84b31" stroke-width="1.8" marker-end="url(#inkArrow)"/>
 
-    <rect x="286" y="38" width="210" height="28" rx="6" fill="#131c2e" stroke="#334155"/>
-    <text x="391" y="56" text-anchor="middle" fill="#e2e8f0" font-family="ui-monospace, monospace" font-size="11.5">2. Model Architecture</text>
+    <rect x="286" y="39" width="210" height="28" rx="4" fill="#1f2329" stroke="#343942"/>
+    <text x="391" y="57" text-anchor="middle" fill="#f5f2eb" font-family="ui-monospace, monospace" font-size="11.5">02. Model Architecture</text>
 
-    <line x1="502" y1="52" x2="544" y2="52" stroke="#22d3ee" stroke-width="1.8" marker-end="url(#arrow)"/>
+    <line x1="502" y1="53" x2="542" y2="53" stroke="#c84b31" stroke-width="1.8" marker-end="url(#inkArrow)"/>
 
-    <rect x="552" y="38" width="210" height="28" rx="6" fill="#131c2e" stroke="#334155"/>
-    <text x="657" y="56" text-anchor="middle" fill="#e2e8f0" font-family="ui-monospace, monospace" font-size="11.5">3. Apply Governance</text>
+    <rect x="550" y="39" width="210" height="28" rx="4" fill="#1f2329" stroke="#343942"/>
+    <text x="655" y="57" text-anchor="middle" fill="#f5f2eb" font-family="ui-monospace, monospace" font-size="11.5">03. Apply Governance</text>
 
-    <line x1="768" y1="52" x2="810" y2="52" stroke="#22d3ee" stroke-width="1.8" marker-end="url(#arrow)"/>
+    <line x1="766" y1="53" x2="806" y2="53" stroke="#c84b31" stroke-width="1.8" marker-end="url(#inkArrow)"/>
 
-    <rect x="818" y="38" width="218" height="28" rx="6" fill="#064e3b" stroke="#10b981"/>
-    <text x="927" y="56" text-anchor="middle" fill="#6ee7b7" font-family="ui-monospace, monospace" font-size="11.5">4. Validate &amp; Report</text>
+    <rect x="814" y="39" width="212" height="28" rx="4" fill="#c84b31"/>
+    <text x="920" y="57" text-anchor="middle" fill="#ffffff" font-family="ui-monospace, monospace" font-size="11.5" font-weight="700">04. Validate &amp; Report</text>
   </g>
 </svg>

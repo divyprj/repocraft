@@ -9,10 +9,10 @@ A zero-dependency Agent Skill for code-verified documentation, Mermaid architect
 
 <p>
   <a href="https://github.com/divyprj/repocraft/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/divyprj/repocraft/validate.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=CI" alt="Validate Skill CI" /></a>
-  <a href="https://agentskills.io"><img src="https://img.shields.io/badge/Standard-Agent%20Skills-22d3ee?style=for-the-badge" alt="Agent Skills Standard" /></a>
-  <img src="https://img.shields.io/badge/Runtime%20Deps-0-10b981?style=for-the-badge" alt="Zero Runtime Dependencies" />
-  <img src="https://img.shields.io/badge/Modes-5%20Execution%20Modes-6366f1?style=for-the-badge" alt="5 Execution Modes" />
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-334155?style=for-the-badge" alt="Apache-2.0 License" /></a>
+  <a href="https://agentskills.io"><img src="https://img.shields.io/badge/Standard-Agent%20Skills-2c4a6e?style=for-the-badge" alt="Agent Skills Standard" /></a>
+  <img src="https://img.shields.io/badge/Runtime%20Deps-0-141619?style=for-the-badge" alt="Zero Runtime Dependencies" />
+  <img src="https://img.shields.io/badge/Modes-5%20Execution%20Modes-c84b31?style=for-the-badge" alt="5 Execution Modes" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-524e46?style=for-the-badge" alt="Apache-2.0 License" /></a>
 </p>
 
 <p>
