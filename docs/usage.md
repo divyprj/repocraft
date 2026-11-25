@@ -14,7 +14,7 @@ When your prompt mentions tasks such as:
 - Setting up contributor attribution, license, or security policies
 - Establishing `AGENTS.md` rules for coding agents
 
-The agent activates RepoCraft and follows its 25 core engineering rules and verification procedures.
+The agent activates RepoCraft and follows its 26 core engineering sections and verification procedures.
 
 ---
 
@@ -127,6 +127,12 @@ According to the repocraft skill, review our repository source code and produce 
 In the Antigravity conversation:
 ```text
 Act under the RepoCraft skill. Inspect our database migrations and produce docs/architecture/database-design.md with an ER diagram.
+```
+
+### In OpenCode
+In an OpenCode session:
+```text
+Use RepoCraft Mode D to update CHANGELOG.md and affected architecture docs for our latest migration.
 ```
 
 ---

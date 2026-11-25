@@ -1,16 +1,18 @@
 #
 # RepoCraft Installer for Windows PowerShell
-# Cross-platform installation script for Claude Code, Cursor, Codex, and Antigravity
+# Cross-platform installation script for Claude Code, Cursor, Codex, Antigravity, and OpenCode
 #
 [CmdletBinding()]
 param(
-    [ValidateSet("claude", "cursor", "codex", "antigravity", "all")]
+    [ValidateSet("claude", "cursor", "codex", "antigravity", "opencode", "all")]
     [string]$Agent = "all",
 
     [ValidateSet("project", "global")]
     [string]$Scope = "global",
 
     [string]$TargetDir = "",
+
+    [switch]$Symlink,
 
     [switch]$DryRun,
 
@@ -68,6 +70,7 @@ function Get-AgentPath {
             "cursor" { return (Join-Path $UserHome ".cursor\skills\repocraft") }
             "codex" { return (Join-Path $UserHome ".agents\skills\repocraft") }
             "antigravity" { return (Join-Path $UserHome ".gemini\config\skills\repocraft") }
+            "opencode" { return (Join-Path $UserHome ".config\opencode\skills\repocraft") }
         }
     }
     else {
@@ -76,6 +79,7 @@ function Get-AgentPath {
             "cursor" { return ".cursor\skills\repocraft" }
             "codex" { return ".agents\skills\repocraft" }
             "antigravity" { return ".agents\skills\repocraft" }
+            "opencode" { return ".opencode\skills\repocraft" }
         }
     }
 }
@@ -89,26 +93,41 @@ function Install-Skill {
     Write-InfoMessage "Target for $AgentName ($Scope): $Destination"
 
     if ($DryRun) {
-        Write-InfoMessage "[DRY-RUN] Would create directory: $Destination"
-        Write-InfoMessage "[DRY-RUN] Would copy RepoCraft skill assets to: $Destination"
+        if ($Symlink) {
+            Write-InfoMessage "[DRY-RUN] Would create symlink: $Destination -> $RepoRoot"
+        }
+        else {
+            Write-InfoMessage "[DRY-RUN] Would create directory: $Destination"
+            Write-InfoMessage "[DRY-RUN] Would copy RepoCraft skill assets to: $Destination"
+        }
         return $true
     }
 
     if (Test-Path -Path $Destination) {
         if ($Force) {
-            Write-WarningMessage "Directory exists. Overwriting because -Force is set: $Destination"
+            Write-WarningMessage "Destination exists. Overwriting because -Force is set: $Destination"
             Remove-Item -Path $Destination -Recurse -Force
         }
         else {
-            Write-ErrorMessage "Destination directory already exists: $Destination"
+            Write-ErrorMessage "Destination already exists: $Destination"
             Write-ErrorMessage "Use -Force to overwrite the existing installation."
             return $false
         }
     }
 
+    if ($Symlink) {
+        $ParentDir = Split-Path -Parent $Destination
+        if ($ParentDir -and -not (Test-Path -Path $ParentDir)) {
+            New-Item -ItemType Directory -Path $ParentDir -Force | Out-Null
+        }
+        New-Item -ItemType SymbolicLink -Path $Destination -Target $RepoRoot | Out-Null
+        Write-SuccessMessage "Symlinked RepoCraft for $AgentName at: $Destination -> $RepoRoot"
+        return $true
+    }
+
     New-Item -ItemType Directory -Path $Destination -Force | Out-Null
 
-    # Copy files
+    # Copy canonical files
     Copy-Item -Path (Join-Path $RepoRoot "SKILL.md") -Destination $Destination -Force
     Copy-Item -Path (Join-Path $RepoRoot "README.md") -Destination $Destination -Force
     Copy-Item -Path (Join-Path $RepoRoot "LICENSE") -Destination $Destination -Force
@@ -155,19 +174,27 @@ function Uninstall-Skill {
 
 $TargetAgents = @()
 if ($Agent -eq "all") {
-    $TargetAgents = @("claude", "cursor", "codex", "antigravity")
+    $TargetAgents = @("claude", "cursor", "codex", "antigravity", "opencode")
 }
 else {
     $TargetAgents = @($Agent)
 }
 
-Write-InfoMessage "RepoCraft Installer v1.0.0 (PowerShell)"
+Write-InfoMessage "RepoCraft Installer v1.1.0 (PowerShell)"
 Write-InfoMessage "Operation: $(if ($Uninstall) { 'UNINSTALL' } else { 'INSTALL' })"
 Write-InfoMessage "Scope: $Scope"
 
+# Deduplicate shared paths (e.g., codex + antigravity share .agents\skills\repocraft in project scope)
+$SeenPaths = @{}
 $AllSuccess = $true
 foreach ($ag in $TargetAgents) {
     $Dest = Get-AgentPath -AgentName $ag -ScopeName $Scope
+    if ($SeenPaths.ContainsKey($Dest)) {
+        Write-InfoMessage "Skipping duplicate shared path for $ag`: $Dest (already handled)"
+        continue
+    }
+    $SeenPaths[$Dest] = $true
+
     if ($Uninstall) {
         $Res = Uninstall-Skill -Destination $Dest -AgentName $ag
     }

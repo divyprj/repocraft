@@ -10,6 +10,7 @@ RepoCraft adheres to the open Agent Skills specification (agentskills.io). It is
 | **Cursor** | `.cursor/skills/repocraft/`<br>`.agents/skills/repocraft/`<br>`~/.cursor/skills/repocraft/` | Project & Global | Semantic intent matching<br>Prompt instructions | Path & Packaging Verified |
 | **OpenAI Codex / ChatGPT** | `.agents/skills/repocraft/`<br>`.codex/skills/repocraft/`<br>`~/.agents/skills/repocraft/` | Project, Global & Web Upload | Semantic intent matching<br>`$skill-installer`<br>ZIP bundle upload | Specification Aligned |
 | **Google Antigravity** | `.agents/skills/repocraft/`<br>`~/.gemini/config/skills/repocraft/` | Workspace & Global | Progressive disclosure on matching prompt | Discovered in Workspace |
+| **OpenCode** | `.opencode/skills/repocraft/`<br>`~/.config/opencode/skills/repocraft/` | Project & Global | Skill discovery on matching prompt | Path & Packaging Verified |
 
 ## Verification Classification
 
@@ -54,6 +55,14 @@ Google Antigravity utilizes progressive disclosure to inject skill instructions 
 - **Workspace path:** `.agents/skills/repocraft/SKILL.md`
 - **Global machine path:** `~/.gemini/config/skills/repocraft/SKILL.md`
 - **Discovery model:** The agent loads the `name` and `description` from the YAML frontmatter into its system registry at startup. The complete instructions in `SKILL.md` are loaded into active context when the user request matches repository engineering tasks.
+
+### 5. OpenCode
+
+OpenCode discovers Agent Skills from both repository and XDG user configuration paths:
+
+- **Project path:** `.opencode/skills/repocraft/SKILL.md`
+- **Global path:** `~/.config/opencode/skills/repocraft/SKILL.md`
+- **Discovery model:** Loads YAML frontmatter metadata and activates `SKILL.md` when repository engineering, documentation, or audit tasks are requested.
 
 ## Canonical Architecture Principle
 

@@ -626,6 +626,11 @@ When preparing or updating a repository:
 4. If GitHub CLI is unavailable:
    - Provide a clean copy-paste block in the final verification report so the developer can update GitHub settings via the Web UI in seconds.
 
+### CI workflow and badge integrity
+
+- Never add a GitHub Actions status badge to `README.md` unless the referenced `.github/workflows/<name>.yml` file actually exists in the repository.
+- Verify that documented CI checks match the commands defined in the workflow file.
+
 Never add repository governance that the owner cannot realistically maintain.
 
 ## 18. SECURITY DOCUMENTATION
@@ -690,6 +695,13 @@ Do not generate fake UI screenshots.
 Do not present conceptual mockups as real application screenshots.
 
 Do not add screenshots merely for decoration.
+
+### Visual identity and asset hygiene
+
+- Give each repository a distinct visual system suited to its domain rather than reusing generic dark-neon templates across unrelated projects.
+- Keep hero banners, architecture SVGs, and badges aligned to one cohesive palette.
+- Verify that every Markdown image link and HTML `<img>` source path resolves to a tracked file on disk.
+- When replacing an existing image in a GitHub repository, rename the file or version the filename so GitHub's Camo CDN proxy does not continue serving a stale cached asset.
 
 ## 20. DOCUMENTATION WRITING STYLE
 

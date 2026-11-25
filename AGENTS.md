@@ -4,7 +4,7 @@ This document governs any AI coding agent operating inside the RepoCraft reposit
 
 ## 1. Project Overview
 
-RepoCraft is a universal AI coding agent skill for professional repository engineering, technical documentation, architecture, governance, and intellectual property protection. It is distributed as an open Agent Skills package compatible with Claude Code, Cursor, OpenAI Codex, and Google Antigravity.
+RepoCraft is a universal AI coding agent skill for professional repository engineering, technical documentation, architecture, governance, and intellectual property protection. It is distributed as an open Agent Skills package compatible with Claude Code, Cursor, OpenAI Codex, Google Antigravity, and OpenCode.
 
 ---
 
@@ -12,13 +12,14 @@ RepoCraft is a universal AI coding agent skill for professional repository engin
 
 ```text
 repocraft/
-|-- SKILL.md                 # Read-only canonical skill (architectural changes require maintainer signoff)
-|-- docs/                    # Technical documentation and guides
+|-- SKILL.md                 # Authoritative canonical skill instructions (v1.1.0)
+|-- assets/                  # Editorial hero banner and SVG visual diagrams
+|-- docs/                    # Technical documentation, architecture, and guides
 |-- templates/               # Reusable documentation and architecture templates
 |-- examples/                # Realistic illustrative project implementations
 |-- scripts/                 # Bash, PowerShell, and Python automation utilities
 |-- tests/                   # Automated pytest verification suite
-|-- .github/                 # Workflows and issue/PR templates
+|-- .github/                 # CI workflows, CODEOWNERS, and issue/PR templates
 ```
 
 ---

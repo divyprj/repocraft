@@ -172,7 +172,7 @@ repocraft/
 |-- README.md                 # Project landing page
 |-- AGENTS.md                 # Root AI coding agent governance rules
 |-- assets/                   # Hero banner and architecture/workflow SVGs
-|-- docs/                     # Compatibility, installation, usage, design principles, troubleshooting
+|-- docs/                     # Architecture (docs/architecture/architecture.md), compatibility, install, usage, troubleshooting
 |-- templates/                # 17 production templates (docs, architecture, ADRs, GitHub)
 |-- examples/                 # Minimal, full-stack, and AI/ML reference projects
 |-- scripts/                  # install.sh, install.ps1, validate.py, sync-github.sh

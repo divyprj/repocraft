@@ -1,6 +1,6 @@
 # Installation Guide
 
-RepoCraft can be installed locally for a single project or globally for all projects on your machine across Claude Code, Cursor, OpenAI Codex, and Google Antigravity.
+RepoCraft can be installed locally for a single project or globally for all projects on your machine across Claude Code, Cursor, OpenAI Codex, Google Antigravity, and OpenCode.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ cd repocraft
 .\scripts\install.ps1 -Agent all -Scope Global
 ```
 
-The installer supports targeting individual agents (`--agent claude`, `--agent cursor`, `--agent codex`, `--agent antigravity`, or `--agent all`) and scopes (`--scope project` or `--scope global`).
+The installer supports targeting individual agents (`--agent claude`, `--agent cursor`, `--agent codex`, `--agent antigravity`, `--agent opencode`, or `--agent all`), scopes (`--scope project` or `--scope global`), and `--symlink` (so `git pull` updates all installed agents automatically). Shared project paths (such as `.agents/skills/repocraft`) are automatically deduplicated.
 
 ---
 
@@ -173,3 +173,4 @@ Delete the specific `repocraft` folder from the respective skills directory:
 - Cursor: `rm -rf ~/.cursor/skills/repocraft` or `rm -rf .cursor/skills/repocraft`
 - Codex: `rm -rf ~/.agents/skills/repocraft` or `rm -rf .agents/skills/repocraft`
 - Antigravity: `rm -rf ~/.gemini/config/skills/repocraft` or `rm -rf .agents/skills/repocraft`
+- OpenCode: `rm -rf ~/.config/opencode/skills/repocraft` or `rm -rf .opencode/skills/repocraft`
