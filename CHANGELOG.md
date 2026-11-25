@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Active GitHub Actions validation workflow at `.github/workflows/validate.yml` running across Ubuntu and macOS.
 - OpenCode agent support (`~/.config/opencode/skills/repocraft` and `.opencode/skills/repocraft`) and `--symlink` live-update mode in `scripts/install.sh`.
 - Quick Mode Router table and Section 26 (Large Repository Scoping and Verification Hooks) in `SKILL.md`.
-- Visual repository assets (`assets/hero-banner.jpg`, `assets/before-after.svg`, `assets/workflow-modes.svg`) and overhauled `README.md`.
+- Visual repository assets (`assets/hero-banner-editorial.jpg`, `assets/before-after.svg`, `assets/workflow-modes.svg`) and overhauled `README.md`.
 - HTML image link verification, bash syntax validation (`bash -n`), CI workflow checks, and `--json` output mode in `scripts/validate.py`.
 - Regression tests in `tests/test_installation.py` covering project-scope path deduplication, `--symlink`, and OpenCode installs.
 

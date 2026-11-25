@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hero-banner.jpg" alt="RepoCraft - Universal Repository Engineering Skill" width="100%" />
+<img src="assets/hero-banner-editorial.jpg" alt="RepoCraft - Universal Repository Engineering Skill" width="100%" />
 
 <h1>RepoCraft</h1>
 
