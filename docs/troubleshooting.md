@@ -16,6 +16,7 @@ The AI agent does not trigger RepoCraft when you ask it to document or structure
   - Cursor: `.cursor/skills/repocraft/SKILL.md` or `.agents/skills/repocraft/SKILL.md`
   - Codex: `.agents/skills/repocraft/SKILL.md` or `~/.agents/skills/repocraft/SKILL.md`
   - Antigravity: `.agents/skills/repocraft/SKILL.md` or `~/.gemini/config/skills/repocraft/SKILL.md`
+  - OpenCode: `.opencode/skills/repocraft/SKILL.md` or `~/.config/opencode/skills/repocraft/SKILL.md`
 - **Agent restart required:** Some agents cache skills in memory at startup. Restart your terminal session or reload your IDE window after copying the skill files.
 
 ---
@@ -75,8 +76,8 @@ After uninstalling, the agent still refers to an old version of the skill.
 
 #### Fix
 Check for multiple installations in both project and global directories:
-- Check your project root for `.claude/skills/repocraft`, `.cursor/skills/repocraft`, or `.agents/skills/repocraft`.
-- Check your user home directory for `~/.claude/skills/repocraft`, `~/.cursor/skills/repocraft`, `~/.agents/skills/repocraft`, or `~/.gemini/config/skills/repocraft`.
+- Check your project root for `.claude/skills/repocraft`, `.cursor/skills/repocraft`, `.agents/skills/repocraft`, or `.opencode/skills/repocraft`.
+- Check your user home directory for `~/.claude/skills/repocraft`, `~/.cursor/skills/repocraft`, `~/.agents/skills/repocraft`, `~/.gemini/config/skills/repocraft`, or `~/.config/opencode/skills/repocraft`.
 - Remove any stale directories and restart the agent.
 
 ---

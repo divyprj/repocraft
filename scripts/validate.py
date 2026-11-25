@@ -206,6 +206,7 @@ class Validator:
             "scripts/install.sh",
             "scripts/install.ps1",
             "scripts/validate.py",
+            "scripts/audit.py",
             "scripts/sync-github.sh",
         ]
         for scr in required_scripts:

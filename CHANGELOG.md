@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Co-authored by Jayant ([@de2pressed](https://github.com/de2pressed)).
 
 ### Added
+- Standalone zero-dependency Mode E Repository Auditor CLI (`scripts/audit.py`) with 0-100 readiness scoring, CI badge verification, secret leak checks, AI slop detection, `--json`, and `--min-score` CI gating (`tests/test_audit.py`).
 - Active GitHub Actions validation workflow at `.github/workflows/validate.yml` running across Ubuntu and macOS.
 - OpenCode agent support (`~/.config/opencode/skills/repocraft` and `.opencode/skills/repocraft`) and `--symlink` live-update mode in `scripts/install.sh`.
 - Quick Mode Router table and Section 26 (Large Repository Scoping and Verification Hooks) in `SKILL.md`.

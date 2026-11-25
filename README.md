@@ -21,7 +21,7 @@ A zero-dependency Agent Skill for code-verified documentation, Mermaid architect
   <a href="#the-5-execution-modes">Modes</a> •
   <a href="#supported-ai-agents">Agents</a> •
   <a href="#templates-and-reference-examples">Templates</a> •
-  <a href="#validation-and-ci">Validation</a>
+  <a href="#validation-auditing-and-ci">Validation</a>
 </p>
 
 </div>
@@ -145,15 +145,19 @@ RepoCraft ships with **17 reusable templates** and **3 complete reference reposi
 
 ---
 
-## Validation and CI
+## Validation, Auditing, and CI
 
-RepoCraft ships with a standalone zero-dependency validator that verifies `SKILL.md` frontmatter, repository structure, relative Markdown and image links, prohibited phrasing rules, bash script syntax, and install/uninstall flows:
+RepoCraft ships with two zero-dependency Python CLIs:
+- **`scripts/audit.py`** (Mode E CLI): Audit **any** repository in under a second for missing governance files, broken relative links/images, missing CI workflow badges, AI slop phrases, and accidental secret exposure, returning a 0-100 readiness score.
+- **`scripts/validate.py`**: Validates RepoCraft's own `SKILL.md` frontmatter, structure, links, bash syntax, and install/uninstall flows.
 
 ```bash
-# Run full standalone validation
-python3 scripts/validate.py
+# Audit any target repository (returns 0-100 readiness score + prioritized findings)
+python3 scripts/audit.py /path/to/any-repo
+python3 scripts/audit.py /path/to/any-repo --json --min-score 80
 
-# Machine-readable JSON output for CI pipelines
+# Run RepoCraft self-validation
+python3 scripts/validate.py
 python3 scripts/validate.py --json
 
 # Run automated pytest suite
@@ -175,7 +179,7 @@ repocraft/
 |-- docs/                     # Architecture (docs/architecture/architecture.md), compatibility, install, usage, troubleshooting
 |-- templates/                # 17 production templates (docs, architecture, ADRs, GitHub)
 |-- examples/                 # Minimal, full-stack, and AI/ML reference projects
-|-- scripts/                  # install.sh, install.ps1, validate.py, sync-github.sh
+|-- scripts/                  # install.sh, install.ps1, audit.py, validate.py, sync-github.sh
 |-- tests/                    # Automated pytest verification suite
 |-- .github/workflows/        # Cross-platform CI validation workflow
 ```

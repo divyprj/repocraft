@@ -6,7 +6,8 @@ Security and the integrity of repository automation are treated with high priori
 
 | Version | Supported |
 | :--- | :--- |
-| 1.0.x | Yes |
+| 1.1.x | Yes |
+| 1.0.x | Security fixes only |
 | < 1.0 | No |
 
 ---
@@ -38,8 +39,10 @@ Please report vulnerabilities privately through GitHub Private Vulnerability Rep
 
 ## Security Considerations for AI Agent Skills
 
-RepoCraft provides instructions and guidelines for AI coding agents. Users should keep in mind:
+RepoCraft provides instructions, installers, and audit scripts for AI coding agents. Users should keep in mind:
 
 1. **Instruction vs Sandbox**: Skill instructions guide model reasoning and prompt composition. They do not enforce operating system-level process sandboxing, credential masking, or network restrictions.
-2. **Secrets Protection**: RepoCraft strictly prohibits embedding production credentials, API tokens, or secrets in repository documentation, examples, or test fixtures.
-3. **Execution Safety**: When running agent commands, always ensure the agent is operating within a sanctioned workspace with appropriate permission boundaries.
+2. **Secrets Protection**: RepoCraft strictly prohibits embedding production credentials, API tokens, or secrets in repository documentation, examples, or test fixtures. Run `python3 scripts/audit.py .` before publishing to flag accidental secret patterns in docs.
+3. **Installer & Symlink Safety**: Both `scripts/install.sh` and `scripts/install.ps1` refuse to delete uninstall targets that do not end with `repocraft`, and `--symlink` points only to the verified local clone root.
+4. **Prompt Injection Resistance**: RepoCraft prohibits hidden instructions, deceptive comments, or prompt-injection payloads inside documentation, templates, or assets.
+5. **Execution Safety**: When running agent commands, always ensure the agent is operating within a sanctioned workspace with appropriate permission boundaries.
