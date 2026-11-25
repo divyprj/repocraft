@@ -8,12 +8,16 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-# Formatting
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
+# Formatting (respects NO_COLOR and non-TTY output)
+if [[ -t 1 && -z "${NO_COLOR:-}" ]]; then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    BLUE='\033[0;34m'
+    YELLOW='\033[1;33m'
+    NC='\033[0m'
+else
+    RED='' GREEN='' BLUE='' YELLOW='' NC=''
+fi
 
 print_info() { printf "${BLUE}[INFO]${NC} %s\n" "$1"; }
 print_success() { printf "${GREEN}[SUCCESS]${NC} %s\n" "$1"; }
@@ -21,8 +25,8 @@ print_warning() { printf "${YELLOW}[WARN]${NC} %s\n" "$1"; }
 print_error() { printf "${RED}[ERROR]${NC} %s\n" "$1" >&2; }
 
 # Defaults for RepoCraft
-DEFAULT_DESC="A universal AI coding agent skill for professional repository engineering, technical documentation, architecture, governance, and intellectual property protection."
-DEFAULT_TOPICS="agent-skills,ai-agents,devops,documentation,software-architecture,codex,claude-code,cursor,antigravity"
+DEFAULT_DESC="Universal AI coding agent skill for repository engineering, architecture diagrams, ADRs, governance, and factual documentation across Claude Code, Cursor, Codex, Antigravity, and OpenCode."
+DEFAULT_TOPICS="agent-skills,ai-agents,devops,documentation,software-architecture,codex,claude-code,cursor,antigravity,opencode"
 
 REPO=""
 DESC="$DEFAULT_DESC"
@@ -45,7 +49,7 @@ Options:
 
 Examples:
   ./scripts/sync-github.sh
-  ./scripts/sync-github.sh --release v1.0.0
+  ./scripts/sync-github.sh --release v1.1.0
   ./scripts/sync-github.sh --dry-run
 EOF
     exit 0
@@ -101,7 +105,6 @@ fi
 if [[ -z "$REPO" ]]; then
     if git -C "$REPO_ROOT" remote get-url origin >/dev/null 2>&1; then
         REMOTE_URL="$(git -C "$REPO_ROOT" remote get-url origin)"
-        # Extract owner/repo from HTTPS or SSH url
         REPO="$(echo "$REMOTE_URL" | sed -E 's/.*github\.com[:\/](.*)(\.git)?/\1/' | sed 's/\.git$//')"
     fi
 fi
@@ -111,12 +114,22 @@ if [[ -z "$REPO" ]]; then
     exit 1
 fi
 
+# Build portable repeated --add-topic flags for all gh CLI versions
+TOPIC_ARGS=()
+IFS=',' read -r -a TOPIC_LIST <<< "$TOPICS"
+for raw_topic in "${TOPIC_LIST[@]}"; do
+    topic="$(echo "$raw_topic" | xargs)"
+    if [[ -n "$topic" ]]; then
+        TOPIC_ARGS+=("--add-topic" "$topic")
+    fi
+done
+
 print_info "Target repository: $REPO"
 print_info "Description: $DESC"
 print_info "Topics: $TOPICS"
 
 if [[ "$DRY_RUN" == true ]]; then
-    print_info "[DRY-RUN] Would run: gh repo edit $REPO --description \"$DESC\" --add-topic \"$TOPICS\""
+    print_info "[DRY-RUN] Would run: gh repo edit $REPO --description \"$DESC\" ${TOPIC_ARGS[*]}"
     if [[ -n "$RELEASE_TAG" ]]; then
         print_info "[DRY-RUN] Would run: gh release create $RELEASE_TAG --title \"RepoCraft $RELEASE_TAG\" --notes-file \"${REPO_ROOT}/CHANGELOG.md\""
     fi
@@ -126,7 +139,7 @@ fi
 
 # Update repository description and topics
 print_info "Updating repository metadata..."
-gh repo edit "$REPO" --description "$DESC" --add-topic "$TOPICS"
+gh repo edit "$REPO" --description "$DESC" "${TOPIC_ARGS[@]}"
 print_success "Repository description and topics updated successfully."
 
 # Create release if requested

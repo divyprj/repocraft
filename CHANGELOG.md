@@ -5,6 +5,20 @@ All notable changes to RepoCraft will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-11-25
+
+### Added
+- Active GitHub Actions validation workflow at `.github/workflows/validate.yml` running across Ubuntu and macOS.
+- OpenCode agent support (`~/.config/opencode/skills/repocraft` and `.opencode/skills/repocraft`) and `--symlink` live-update mode in `scripts/install.sh`.
+- Quick Mode Router table and Section 26 (Large Repository Scoping and Verification Hooks) in `SKILL.md`.
+- Visual repository assets (`assets/hero-banner.jpg`, `assets/before-after.svg`, `assets/workflow-modes.svg`) and overhauled `README.md`.
+- HTML image link verification, bash syntax validation (`bash -n`), CI workflow checks, and `--json` output mode in `scripts/validate.py`.
+- Regression tests in `tests/test_installation.py` covering project-scope path deduplication, `--symlink`, and OpenCode installs.
+
+### Fixed
+- Deduplicated shared `.agents/skills/repocraft` destination in `scripts/install.sh` so `--agent all --scope project` succeeds without failing on duplicate target paths.
+- Split comma-separated topics into repeated `--add-topic` arguments in `scripts/sync-github.sh` for cross-version `gh` CLI compatibility.
+
 ## [1.0.0] - 2026-11-24
 
 ### Added

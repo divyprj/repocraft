@@ -2,14 +2,26 @@
 name: repocraft
 description: A universal AI coding agent skill for professional repository engineering, technical documentation, architecture, governance, and intellectual property protection. Use when creating, reviewing, documenting, organizing, auditing, or preparing software repositories for GitHub.
 license: Apache-2.0
-compatibility: Compatible with Claude Code, Cursor, OpenAI Codex, and Google Antigravity. Requires git, bash/PowerShell, and Python 3.8+ for validation.
+compatibility: Compatible with Claude Code, Cursor, OpenAI Codex, Google Antigravity, and OpenCode. Requires git, bash/PowerShell, and Python 3.8+ for validation.
 metadata:
   author: Divyansh Prajapati
-  version: "1.0.0"
+  version: "1.1.0"
   repository: "https://github.com/divyprj/repocraft"
 ---
 
 # RepoCraft: Universal Repository Engineering Skill
+
+## QUICK MODE ROUTER
+
+Select the execution mode matching the user's request before inspecting or editing files:
+
+| Mode | Trigger | Scope & Rules |
+| :--- | :--- | :--- |
+| **Mode A: New Repository** | Starting a fresh repo or project scaffold | Create minimal needed structure, README, governance, ownership, and AGENTS.md |
+| **Mode B: Existing Repository** | Documenting or organizing an existing codebase | Inspect source code first; preserve accurate docs; fix stale claims |
+| **Mode C: Documentation-Only** | User asks for docs/README/architecture only | Strictly no application code, dependency, or runtime config edits |
+| **Mode D: Maintenance** | Updating docs after a code/schema/API change | Surgically update only affected sections and changelog entries |
+| **Mode E: Repository Audit** | Review, gap analysis, or readiness check | Report prioritized gaps without modifying files unless requested |
 
 ## 1. ROLE AND RESPONSIBILITY
 
@@ -907,5 +919,19 @@ Documentation should answer these questions:
 The objective is not to create the largest possible documentation directory.
 
 The objective is to create a reliable engineering reference that reflects the real software, preserves project ownership information, supports collaboration, and remains useful as the project evolves.
+
+## 26. LARGE REPOSITORY SCOPING AND VERIFICATION HOOKS
+
+For monorepos or repositories exceeding 50 source files:
+
+- Map top-level packages, workspaces, or services first using dependency manifests and directory listings.
+- Inspect one subsystem at a time rather than reading every file into a single context window.
+- Document shared conventions at the root and keep service-specific details inside each package or `docs/` module.
+
+Before concluding any RepoCraft session:
+
+- Run the repository's native validator, linter, or test command (for example `python3 scripts/validate.py`, `pytest`, or `npm test`) whenever available.
+- Verify that every relative Markdown link and image reference resolves on disk.
+- Confirm that no placeholder strings, fabricated endpoints, or unverified commands remain.
 
 **Final rule: Never sacrifice technical accuracy, repository integrity, or maintainability for documentation volume or visual presentation.**
