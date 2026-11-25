@@ -4,7 +4,7 @@ description: A universal AI coding agent skill for professional repository engin
 license: Apache-2.0
 compatibility: Compatible with Claude Code, Cursor, OpenAI Codex, Google Antigravity, and OpenCode. Requires git, bash/PowerShell, and Python 3.8+ for validation.
 metadata:
-  author: Divyansh Prajapati
+  author: "Divyansh Prajapati, Jayant (@de2pressed)"
   version: "1.1.0"
   repository: "https://github.com/divyprj/repocraft"
 ---

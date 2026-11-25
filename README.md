@@ -194,7 +194,7 @@ repocraft/
 
 Contributions are welcome! Read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before opening a PR.
 
-Created by **Divyansh Prajapati** ([AUTHORS.md](AUTHORS.md)). Licensed under **Apache-2.0** ([LICENSE](LICENSE) | [COPYRIGHT](COPYRIGHT) | [NOTICE](NOTICE)).
+Created by **Divyansh Prajapati** ([@divyprj](https://github.com/divyprj)) and co-authored with **Jayant** ([@de2pressed](https://github.com/de2pressed)) ([AUTHORS.md](AUTHORS.md)). Licensed under **Apache-2.0** ([LICENSE](LICENSE) | [COPYRIGHT](COPYRIGHT) | [NOTICE](NOTICE)).
 
 <div align="center">
   <br/>

@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0] - 2026-11-25
 
+Co-authored by Jayant ([@de2pressed](https://github.com/de2pressed)).
+
 ### Added
 - Active GitHub Actions validation workflow at `.github/workflows/validate.yml` running across Ubuntu and macOS.
 - OpenCode agent support (`~/.config/opencode/skills/repocraft` and `.opencode/skills/repocraft`) and `--symlink` live-update mode in `scripts/install.sh`.
